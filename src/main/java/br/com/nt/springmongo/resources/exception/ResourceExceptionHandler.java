@@ -1,5 +1,7 @@
 package br.com.nt.springmongo.resources.exception;
 
+import java.time.ZonedDateTime;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
@@ -18,7 +20,7 @@ public class ResourceExceptionHandler {
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request) {
 
 		HttpStatus status = HttpStatus.NOT_FOUND;
-		StandardError std = new StandardError(System.currentTimeMillis(), status.value(), "Nao Encontrado",
+		StandardError std = new StandardError(ZonedDateTime.now(), status.value(), "Nao Encontrado",
 				e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(std);
 	}

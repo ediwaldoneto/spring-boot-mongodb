@@ -1,11 +1,12 @@
 package br.com.nt.springmongo.resources.exception;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 public class StandardError implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long timestamp;
+	private ZonedDateTime timestamp;
 	private Integer status;
 	private String error;
 	private String message;
@@ -15,7 +16,7 @@ public class StandardError implements Serializable {
 
 	}
 
-	public StandardError(Long timestamp, Integer status, String error, String message, String path) {
+	public StandardError(ZonedDateTime timestamp, Integer status, String error, String message, String path) {
 		super();
 		this.timestamp = timestamp;
 		this.status = status;
@@ -25,11 +26,11 @@ public class StandardError implements Serializable {
 
 	}
 
-	public Long getTimestamp() {
+	public ZonedDateTime getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(Long timestamp) {
+	public void setTimestamp(ZonedDateTime timestamp) {
 		this.timestamp = timestamp;
 	}
 
